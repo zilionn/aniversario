@@ -1,0 +1,62 @@
+/* index.css */
+
+/* Estilo do corpo */
+body {
+    background-color: #FFCCCB; /* Fundo rosinha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif; /* Fonte padrão para o título e botões */
+    margin: 0;
+    text-align: center;
+}
+
+/* Estilo do contêiner principal */
+.container {
+    text-align: center;
+}
+
+/* Estilo para o título */
+.header h1 {
+    font-size: 3em;
+    color: white; /* Preenchimento branco */
+    -webkit-text-stroke: 1px #FF69B4; /* Contorno rosa mais fino */
+    text-shadow: 1px 1px 0px #FF69B4, -1px -1px 0px #FF69B4, 1px -1px 0px #FF69B4, -1px 1px 0px #FF69B4; /* Contorno rosa mais fino usando text-shadow */
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    margin-bottom: 40px;
+}
+
+/* Estilo dos botões */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #FFFFFF; /* Apenas branco para o texto */
+    background-color: transparent; /* Sem fundo para que apenas o texto seja estilizado */
+    border: 2px solid #FF69B4; /* Borda rosa */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Adiciona transição suave para efeitos */
+    font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+    font-weight: 700; /* Deixa a fonte mais espessa */
+}
+
+/* Estilo de hover para os botões */
+.button:hover {
+    background-color: #FF69B4; /* Fundo rosa ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6); /* Adiciona uma sombra rosa brilhante ao passar o mouse */
+}
+
+/* Estilo de clique para os botões */
+.button:active {
+    transform: scale(0.95); /* Diminui o tamanho do botão ao clicar */
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.8); /* Sombra mais intensa ao clicar */
+}

@@ -1,0 +1,156 @@
+/* quiz.css */
+
+body {
+    background-color: #FFCCCB; /* Cor pastel */
+    text-align: center;
+    font-family: 'Monaco', monospace; /* Fonte padrão para todo o site */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contêiner principal do quiz */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Estilos do card para a pergunta e opções */
+.card, .intro-card {
+    background-color: #ffe4e1; /* Fundo rosinha */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Centraliza o card horizontalmente */
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* As perguntas e opções devem estar em uma coluna */
+    justify-content: center;
+    align-items: center;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para todo o conteúdo do card */
+}
+
+/* Título e descrição do card inicial */
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para o texto */
+    color: #000;
+}
+
+.intro-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para o título */
+}
+
+.intro-description {
+    margin-bottom: 20px;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para a descrição */
+}
+
+/* Estilo do GIF no card inicial */
+.intro-gif {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    margin-bottom: 20px; /* Espaçamento abaixo do GIF */
+}
+
+/* Botão de iniciar */
+.intro-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupa toda a largura do espaço ao lado do conteúdo */
+    height: 100%; /* Ocupa toda a altura do card */
+}
+
+.start-button {
+    background-color: #ffb6c1; /* Cor pastel */
+    color: #000;
+    border: none;
+    padding: 20px 40px; /* Aumenta o tamanho do botão */
+    font-size: 20px; /* Fonte maior para o botão */
+    cursor: pointer;
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: background-color 0.3s;
+    width: 100%; /* Botão ocupa toda a largura do contêiner */
+    height: 100%; /* Botão ocupa toda a altura do contêiner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para o botão */
+}
+
+.start-button:hover {
+    background-color: #f8bbd0; /* Cor de hover */
+}
+
+/* Estilo da pergunta */
+.question {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para as perguntas */
+    text-align: left;
+    width: 100%; /* Ocupa toda a largura do card */
+}
+
+/* Contêiner para as opções de resposta */
+.options {
+    display: flex;
+    flex-direction: column; /* Coloca as opções de resposta em uma coluna */
+    width: 100%; /* Ocupa toda a largura do card */
+}
+
+/* Estilo dos botões de opção */
+.option-button {
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fce4ec; /* Cor pastel */
+    color: #000;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Monaco', monospace; /* Fonte Monaco para os botões das opções */
+}
+
+.option-button.selected {
+    background-color: #ffb6c1; /* Cor de destaque para resposta selecionada */
+    color: #fff; /* Cor do texto para resposta selecionada */
+}
+
+/* Contêiner de navegação */
+.navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation button {
+    background-color: #ffb6c1;
+    color: #000;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: 'Monaco', monospace; /* Fonte Monaco para os botões de navegação */
+}
+
+.navigation button:hover {
+    background-color: #f8bbd0; /* Cor de hover */
+}

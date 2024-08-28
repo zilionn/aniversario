@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz para Clara</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+    
+    <script>
+        let currentQuestion = 0;
+        const questions = [
+            {
+                question: "1) Quantos anos de amizade você tem com seu melhor amigo?",
+                options: ["8", "9", "10", "11", "12"],
+                correct: "10"
+            },
+            {
+                question: "2) Se seu melhor amigo não fosse desenvolvedor ele seria...",
+                options: ["cantor", "prostituto", "crítico de arte", "arquiteto", "crítico de cinema"],
+                correct: "crítico de arte"
+            },
+            {
+                question: "3) Seu amigo encontra 3 antigos amigos que ele não gosta, o que ele faria?",
+                options: ["bateria neles", "xingaria eles", "ignoraria", "ignoraria e mandaria uma mensagem pra você 'amiga, você não sabe quem eu vi...'", "fingiria que gosta deles e cumprimentaria todos"],
+                correct: "ignoraria e mandaria uma mensagem pra você 'amiga, você não sabe quem eu vi...'"
+            },
+            {
+                question: "4) O que o que é: duas crianças achando que tem poderes no sétimo ano?",
+                options: ["criatividade", "maturidade", "Fernando e Clara", "exemplo de inteligência", "benção de jesus cristo (elas tinham poderes de verdade)"],
+                correct: "Fernando e Clara"
+            },
+            {
+                question: "5) Você ama seu melhor amigo e acredita que ele é a melhor pessoa que existe?",
+                options: ["sim", "não"],
+                correct: "sim"
+            }
+        ];
+        let userAnswers = new Array(questions.length).fill(null); // Inicializa com null para todas as perguntas
+
+        function showIntroCard() {
+            document.getElementById('intro-card').style.display = 'flex';
+            document.getElementById('quiz').style.display = 'none';
+        }
+
+        function startQuiz() {
+            document.getElementById('intro-card').style.display = 'none';
+            document.getElementById('quiz').style.display = 'flex';
+            showQuestion(currentQuestion);
+        }
+
+        function showQuestion(index) {
+            if (index < 0 || index >= questions.length) return;
+
+            const quizContainer = document.getElementById("quiz");
+            const questionData = questions[index];
+
+            quizContainer.innerHTML = `
+                <div class="card">
+                    <div class="question">${questionData.question}</div>
+                    <div class="options">
+                        ${questionData.options.map((option, i) => `
+                            <button class="option-button ${userAnswers[index] === i ? 'selected' : ''}" onclick="selectOption(${index}, ${i})">${option}</button>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="navigation">
+                    ${index > 0 ? '<button onclick="prevQuestion()">&#9664;</button>' : ''}
+                    ${index < questions.length - 1 ? '<button onclick="nextQuestion()">&#9654;</button>' : ''}
+                    ${index === questions.length - 1 ? '<button onclick="checkAnswers()">Finalizar</button>' : ''}
+                </div>
+            `;
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            userAnswers[questionIndex] = optionIndex; // Armazena a resposta selecionada
+            highlightSelectedOption(questionIndex, optionIndex);
+        }
+
+        function highlightSelectedOption(questionIndex, optionIndex) {
+            const buttons = document.querySelectorAll('.options button');
+            buttons.forEach((button, index) => {
+                if (index === optionIndex) {
+                    button.classList.add('selected');
+                } else {
+                    button.classList.remove('selected');
+                }
+            });
+        }
+
+        function prevQuestion() {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+        }
+
+        function checkAnswers() {
+            let correctCount = 0;
+            questions.forEach((question, index) => {
+                if (userAnswers[index] !== null && questions[index].options[userAnswers[index]] === question.correct) {
+                    correctCount++;
+                }
+            });
+
+            if (correctCount === questions.length) {
+                alert("Parabéns! Você acertou todas as perguntas!");
+                downloadPoem();
+            } else {
+                alert("Você não acertou todas as respostas. Tente novamente!");
+            }
+        }
+
+        function downloadPoem() {
+            const poem = "Clara,\n" +
+                        "Você é a melhor amiga que eu pude ter. Sua felicidade é a minha felicidade. Sua paz é a minha paz.\n" +
+                        "Nas suas guerras serei um soldado e garanto dar meu esforço, até onde você me permitir, para comemorar a vitória de todas as batalhas da sua vida.\n" +
+                        "Do amigo que mais te ama: Fernando <3";
+            const blob = new Blob([poem], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "textinhofofoparaabest.txt";
+            link.click();
+        }
+
+        window.onload = function() {
+            showIntroCard();
+        };
+    </script>
+</head>
+<body>
+
+<!-- Menu Superior -->
+<div class="navbar">
+    <button class="menu-button home-button" onclick="window.location.href='index.html'">Início</button>
+</div>
+
+<!-- Card Inicial do Quiz -->
+<div id="intro-card" class="intro-card">
+    <div class="intro-content">
+        <h1 class="intro-title">QUIZZ</h1>
+        <p class="intro-description">Acerte todas para ganhar um textinho fofo</p>
+        <!-- Adicionando o GIF -->
+        <img src="1c29154636f73295ad5fe84068c7a180.gif" alt="Hello Kitty GIF" class="intro-gif">
+    </div>
+    <div class="intro-button">
+        <button class="start-button" onclick="startQuiz()">INICIAR</button>
+    </div>
+</div>
+
+<!-- Container do Quiz -->
+<div id="quiz" class="quiz-container" style="display: none;"></div>
+
+</body>
+</html>

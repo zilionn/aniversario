@@ -1,0 +1,39 @@
+/* presentes.css */
+
+body {
+    background-color: #FFCCCB; /* Cores pastel */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    color: rgb(245, 120, 172);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Estilo específico para os botões de presente */
+.present-button {
+    display: block;
+    margin: 10px auto;
+    padding: 15px;
+    width: 300px;
+    background-color: #fce4ec; /* Cor pastel */
+    color: rgb(245, 120, 172);
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.present-button:hover {
+    transform: scale(1.05);
+    background-color: #ffb6c1; /* Cor de hover pastel */
+}

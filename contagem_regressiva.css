@@ -1,0 +1,122 @@
+/* contagem_regressiva.css */
+
+/* Estilo do corpo */
+body {
+    background: linear-gradient(135deg, #FFCCCB, #FFE4E1); /* Fundo gradiente suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    overflow: hidden; /* Para evitar barras de rolagem durante a animação */
+    position: relative; /* Necessário para posicionar o efeito ripple */
+    cursor: pointer; /* Mostrar que a tela é clicável */
+}
+
+/* Título da contagem regressiva */
+.countdown-title {
+    font-size: 2.5em;
+    color: #555;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    font-style: italic; /* Aplica o estilo itálico ao título */
+    animation: colorChange 5s infinite, pulse 1.5s infinite; /* Animação de mudança de cor e pulsação */
+}
+
+/* Animação de mudança de cor */
+@keyframes colorChange {
+    0% {
+        color: #FFB6C1; /* Rosa pastel */
+    }
+    25% {
+        color: #FFC0CB; /* Rosa claro */
+    }
+    50% {
+        color: #FFDAB9; /* Pêssego pastel */
+    }
+    75% {
+        color: #FFFACD; /* Amarelo pastel */
+    }
+    100% {
+        color: #FFB6C1; /* Volta ao rosa pastel */
+    }
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Caixa da contagem regressiva */
+.countdown-timer {
+    font-size: 3em;
+    color: #333;
+    padding: 20px 40px;
+    background-color: #ffe4e1; /* Fundo rosinha */
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 192, 203, 0.5); /* Sombra dupla */
+    display: inline-block;
+    margin-top: 20px;
+    border: 2px solid transparent;
+    animation: borderAnim 3s infinite, colorChangeText 5s infinite; /* Animação de borda e mudança de cor */
+    font-family: 'Courier New', Courier, monospace; /* Fonte personalizada para a contagem regressiva */
+}
+
+/* Animação de borda */
+@keyframes borderAnim {
+    0% {
+        border-color: #FFB6C1;
+    }
+    50% {
+        border-color: #FFC0CB;
+    }
+    100% {
+        border-color: #FFB6C1;
+    }
+}
+
+/* Animação de mudança de cor do texto da contagem */
+@keyframes colorChangeText {
+    0% {
+        color: #FFB6C1; /* Rosa pastel */
+    }
+    25% {
+        color: #FFC0CB; /* Rosa claro */
+    }
+    50% {
+        color: #FFDAB9; /* Pêssego pastel */
+    }
+    75% {
+        color: #FFFACD; /* Amarelo pastel */
+    }
+    100% {
+        color: #FFB6C1; /* Volta ao rosa pastel */
+    }
+}
+
+/* Estilo para o efeito de clique (ripple) */
+.ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 182, 193, 0.5); /* Cor rosinha clara */
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none; /* Não interferir em outros eventos de clique */
+}
+
+/* Animação do efeito de clique */
+@keyframes rippleEffect {
+    to {
+        transform: scale(4); /* Expande a onda */
+        opacity: 0; /* Dissolve a onda */
+    }
+}

@@ -1,0 +1,78 @@
+/* clara.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Fundo preto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Remove a barra de rolagem */
+    position: relative; /* Necessário para posicionar elementos absolutos */
+    cursor: pointer; /* Mostrar que a tela é clicável */
+}
+
+.surprise-container {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.flashing-text {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 20px 0;
+    animation: flash 1.5s infinite alternate, jump 0.5s infinite; /* Adiciona animação de pulo */
+}
+
+/* Diferentes atrasos para criar um efeito de sequência */
+.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+/* Animação para o efeito de piscada */
+@keyframes flash {
+    0% {
+        opacity: 1;
+        color: #FF69B4; /* Rosa Choque */
+    }
+    50% {
+        opacity: 0.5;
+        color: #FFD700; /* Amarelo Ouro */
+    }
+    100% {
+        opacity: 1;
+        color: #00FF00; /* Verde Lima */
+    }
+}
+
+/* Animação de pulo para o texto */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Confetes caindo */
+canvas#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Confetes não interferem no clique */
+    z-index: 5;
+}

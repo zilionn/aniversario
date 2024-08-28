@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contagem Regressiva da Clara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contagem_regressiva.css">
+    <link rel="stylesheet" href="menu.css">
+    
+    <script>
+        function countdown() {
+            var eventDate = new Date("August 31, 2024 00:00:00").getTime();
+            var now = new Date().getTime();
+            var distance = eventDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }
+
+        function createRippleEffect(event) {
+            const rippleContainer = document.createElement('div');
+            rippleContainer.classList.add('ripple');
+            document.body.appendChild(rippleContainer);
+
+            const x = event.clientX;
+            const y = event.clientY;
+            rippleContainer.style.left = `${x}px`;
+            rippleContainer.style.top = `${y}px`;
+
+            rippleContainer.addEventListener('animationend', () => {
+                rippleContainer.remove();
+            });
+        }
+
+        document.addEventListener('click', createRippleEffect);
+        setInterval(countdown, 1000);
+    </script>
+</head>
+<body>
+
+<!-- Menu Superior -->
+<div class="navbar">
+    <button class="menu-button home-button" onclick="window.location.href='index.html'">Início</button>
+</div>
+
+<div class="content">
+    <h1 class="countdown-title">contagem regressiva para a festa da clara...</h1>
+    <div id="countdown" class="countdown-timer"></div>
+</div>
+
+</body>
+</html>

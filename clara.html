@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz Aniversário, Clara!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css"> <!-- Carregar primeiro -->
+    <link rel="stylesheet" href="clara.css"> <!-- Carregar por último para garantir o fundo preto -->
+</head>
+<body>
+
+<div class="navbar">
+    <button class="menu-button home-button" onclick="window.location.href='index.html'">Início</button>
+</div>
+
+<audio id="background-music" loop autoplay>
+    <source src="Parabéns pra Você!.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
+
+<div class="surprise-container">
+    <div class="flashing-text">FELIZ ANIVERSÁRIO</div>
+    <div class="flashing-text delay-1">VOCÊ É A MELHOR DO MUNDO</div>
+    <div class="flashing-text delay-2">EU TE AMO</div>
+</div>
+
+<!-- Confetes -->
+<canvas id="confetti-canvas"></canvas>
+
+<script src="clara.js"></script>
+</body>
+</html>
